@@ -6,7 +6,6 @@ defmodule LvexamplesWeb.EventsUpLive do
     {:ok, assign(socket, counter: 0)}
   end
 
-
   @impl true
   def render(assigns) do
     Phoenix.View.render(LvexamplesWeb.LayoutView, "events_up.html", assigns)
@@ -17,5 +16,4 @@ defmodule LvexamplesWeb.EventsUpLive do
     counter = socket.assigns.counter
     {:noreply, assign(socket, counter: counter + 1)}
   end
-
 end

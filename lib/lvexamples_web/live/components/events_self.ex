@@ -1,7 +1,6 @@
 defmodule LvexamplesWeb.Live.Components.EventsSelf do
   use LvexamplesWeb, :live_component
 
-
   @impl true
   def preload(list_of_assigns) do
     IO.puts("Stateful component is calling preload.")
@@ -20,7 +19,7 @@ defmodule LvexamplesWeb.Live.Components.EventsSelf do
     {:ok, assign(socket, assigns)}
   end
 
-@impl true
+  @impl true
   def render(assigns) do
     ~L"""
       <h1><%= @counter %></h1>
@@ -33,5 +32,4 @@ defmodule LvexamplesWeb.Live.Components.EventsSelf do
     counter = socket.assigns.counter
     {:noreply, assign(socket, counter: counter + 1)}
   end
-
 end

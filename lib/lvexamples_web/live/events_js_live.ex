@@ -10,5 +10,4 @@ defmodule LvexamplesWeb.EventsJSLive do
   def render(assigns) do
     Phoenix.View.render(LvexamplesWeb.LayoutView, "events_js.html", assigns)
   end
-
 end

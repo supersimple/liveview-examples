@@ -24,7 +24,9 @@ Hooks.CounterUpdate = {
             let container = this.el.closest("div");
             let list = [...container.getElementsByTagName('ul')][0];
             let new_item = document.createElement("li");
-            new_item.innerText = '🐑';
+            let rand = Math.floor(Math.random() * 30);
+
+            new_item.innerText = rand == 22 ? '🦄' : '🐑';
             new_item.classList.add('inline');
             list.appendChild(new_item);
 

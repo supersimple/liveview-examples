@@ -18,5 +18,4 @@ defmodule LvexamplesWeb.SimpleLive do
     Process.send_after(self(), :counter_update, 5000)
     {:noreply, assign(socket, counter: counter + 1)}
   end
-
 end

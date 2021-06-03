@@ -1,7 +1,6 @@
 defmodule LvexamplesWeb.Live.Components.EventsJS do
   use LvexamplesWeb, :live_component
 
-
   @impl true
   def preload(list_of_assigns) do
     IO.puts("Stateful component is calling preload.")
