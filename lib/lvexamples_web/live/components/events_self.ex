@@ -22,8 +22,10 @@ defmodule LvexamplesWeb.Live.Components.EventsSelf do
   @impl true
   def render(assigns) do
     ~L"""
-      <h1><%= @counter %></h1>
-      <button phx-target="<%= @myself %>" phx-click="counter_update" class="rounded bg-yellow-600 px-8">+</button>
+      <div class="my-2 p-4">
+        <h1><%= @counter %></h1>
+        <button phx-target="<%= @myself %>" phx-click="counter_update" class="rounded bg-yellow-600 px-8">+</button>
+      </div>
     """
   end
 

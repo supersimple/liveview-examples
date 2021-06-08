@@ -3,7 +3,7 @@ defmodule LvexamplesWeb.SimpleLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    Process.send_after(self(), :counter_update, 5000)
+    Process.send_after(self(), :counter_update, 3000)
     {:ok, assign(socket, counter: 0)}
   end
 
@@ -15,7 +15,7 @@ defmodule LvexamplesWeb.SimpleLive do
   @impl true
   def handle_info(:counter_update, socket) do
     counter = socket.assigns.counter
-    Process.send_after(self(), :counter_update, 5000)
+    Process.send_after(self(), :counter_update, 3000)
     {:noreply, assign(socket, counter: counter + 1)}
   end
 end

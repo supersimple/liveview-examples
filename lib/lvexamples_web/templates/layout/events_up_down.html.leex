@@ -1,0 +1,4 @@
+<div class="text-center mt-24 text-8xl flex">
+    <%= live_component @socket, LvexamplesWeb.Live.Components.EventsUpDown, id: "counter_a", target: "counter_b", counter: 0 %>
+    <%= live_component @socket, LvexamplesWeb.Live.Components.EventsUpDown, id: "counter_b", target: "counter_a", counter: 0 %>
+</div>

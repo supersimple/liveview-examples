@@ -20,8 +20,10 @@ defmodule LvexamplesWeb.Router do
     live "/", PageLive, :index
     live "/simple", SimpleLive, :index
     live "/events-up", EventsUpLive, :index
+    live "/events-up-down", EventsUpDownLive, :index
     live "/events-self", EventsSelfLive, :index
     live "/events-js", EventsJSLive, :index
+    live "/complex", ComplexLive, :index
     live "/events-surface", EventsSurfaceLive, :index
   end
 end

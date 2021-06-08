@@ -10,6 +10,15 @@
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body class="bg-gray-800 text-white">
+    <nav class="py-4 flex">
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.simple_path(@conn, :index) %>">Simple</a>
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.events_up_path(@conn, :index) %>">Events Up</a>
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.events_up_down_path(@conn, :index) %>">Events Up & Down</a>
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.events_self_path(@conn, :index) %>">Events Self</a>
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.events_js_path(@conn, :index) %>">Events JS</a>
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.complex_path(@conn, :index) %>">Complex</a>
+      <a class="text-center mx-4 flex-1 rounded py-2 px-4 bg-green-700" href="<%= Routes.events_surface_path(@conn, :index) %>">Events Surface</a>
+    </nav>
     <%= @inner_content %>
   </body>
 </html>

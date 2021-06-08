@@ -34,6 +34,45 @@ Hooks.CounterUpdate = {
         })
     }
 }
+
+Hooks.AddTodo = {
+    mounted() {
+        this.el.addEventListener("click", e => {
+            let container = this.el.closest("form").getElementsByClassName("prizes_list_container")[0]
+
+            let labels = [...container.getElementsByTagName('label')];
+            let new_label = document.createElement("label");
+            let new_input = document.createElement("input")
+            new_input.setAttribute("name", "prizes[]");
+            new_input.setAttribute("type", "text");
+            new_input.setAttribute("value", "");
+            new_label.appendChild(new_input);
+            container.appendChild(new_label);
+
+            // make sure the remove button is visible
+            let rmv = [...this.el.closest("form").getElementsByClassName('remove')];
+            rmv[0].classList.remove("hidden");
+            e.preventDefault();
+        })
+    }
+}
+
+Hooks.RemoveTodo = {
+    mounted() {
+        this.el.addEventListener("click", e => {
+            let container = this.el.closest("form").getElementsByClassName("prizes_list_container")[0];
+            let labels = [...container.getElementsByTagName('label')];
+
+            if (labels.length > 0) { labels[labels.length - 1].remove(); }
+            if ([...container.getElementsByTagName('label')].length == 0) {
+                let rmv = [...this.el.closest("form").getElementsByClassName('remove')];
+                rmv[0].classList.add("hidden");
+            }
+            e.preventDefault();
+        })
+    }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, { params: { _csrf_token: csrfToken }, hooks: Hooks })
 
