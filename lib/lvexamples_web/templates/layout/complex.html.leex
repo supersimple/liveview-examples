@@ -1,3 +1,4 @@
 <div class="text-center mt-24 text-8xl">
     <%= live_component @socket, LvexamplesWeb.Live.Components.Complex.DatePicker, id: "date_picker", selected_date: @selected_date, calendar_open: @calendar_open %>
+    <%= live_component @socket, LvexamplesWeb.Live.Components.Complex.Todo, id: "todo_list", selected_date: @selected_date %>
 </div>

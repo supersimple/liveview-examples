@@ -38,12 +38,12 @@ Hooks.CounterUpdate = {
 Hooks.AddTodo = {
     mounted() {
         this.el.addEventListener("click", e => {
-            let container = this.el.closest("form").getElementsByClassName("prizes_list_container")[0]
+            let container = this.el.closest("form").getElementsByClassName("todo_list_container")[0]
 
             let labels = [...container.getElementsByTagName('label')];
             let new_label = document.createElement("label");
             let new_input = document.createElement("input")
-            new_input.setAttribute("name", "prizes[]");
+            new_input.setAttribute("name", "items[]");
             new_input.setAttribute("type", "text");
             new_input.setAttribute("value", "");
             new_label.appendChild(new_input);
@@ -60,7 +60,7 @@ Hooks.AddTodo = {
 Hooks.RemoveTodo = {
     mounted() {
         this.el.addEventListener("click", e => {
-            let container = this.el.closest("form").getElementsByClassName("prizes_list_container")[0];
+            let container = this.el.closest("form").getElementsByClassName("todo_list_container")[0];
             let labels = [...container.getElementsByTagName('label')];
 
             if (labels.length > 0) { labels[labels.length - 1].remove(); }

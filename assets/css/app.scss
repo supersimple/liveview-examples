@@ -4,6 +4,61 @@
 @tailwind utilities;
 
 /* LiveView specific classes for your customizations */
+.todo_list_form {
+  @apply px-12 pt-44;
+
+  h1 {
+    @apply text-xl text-left;
+  }
+
+  .todo_list_container {
+    @apply pt-4;
+    overflow-y: clip;
+
+    label {
+      @apply text-xs leading-5 block h-8;
+      width: 20rem;
+
+      &:nth-of-type(1)::after {
+        content: 'critical';
+      }
+
+      &:nth-of-type(2)::after {
+        content: 'very important';
+      }
+
+      &:nth-of-type(3)::after {
+        content: 'important';
+      }
+
+      &:nth-of-type(4)::after {
+        content: 'not important';
+      }
+
+      &:nth-of-type(5)::after {
+        content: 'nice to have';
+      }
+
+      input {
+        @apply ring-0 text-gray-700 text-xs text-center rounded border border-gray-900 w-44 leading-6 float-right px-1 py-0;
+      }
+    }
+  }
+
+  .add_remove_items {
+    @apply relative text-lg;
+
+    button.add {
+      @apply absolute left-0;
+    }
+
+    button.remove {
+      @apply absolute left-8;
+    }
+  }
+
+}
+
 .date_picker {
   @apply relative z-50;
 
@@ -16,7 +71,7 @@
   }
 
   .calendar {
-    @apply bg-white rounded-lg p-4 shadow-lg absolute top-6 left-28;
+    @apply bg-white rounded-lg p-4 shadow-lg absolute top-6 left-1/2;
 
     .month {
       @apply text-center text-gray-900 text-xs pb-2;

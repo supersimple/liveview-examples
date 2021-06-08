@@ -4,8 +4,8 @@ defmodule LvexamplesWeb.Live.Components.Complex.DatePicker do
   def render(assigns) do
     ~L"""
     <div class="date_picker" x-data="{ calendar_open : <%= @calendar_open %> }">
-      <h1>Showing games on: <button @click="{ calendar_open ? calendar_open = false : calendar_open = true }"><%= format_selected_date(@calendar.selected_day) %></button></h1>
-      <div class="calendar" style="display:none;" x-show="calendar_open" @click.away="calendar_open = false">
+      <h1>Showing list for: <button @click="{ calendar_open ? calendar_open = false : calendar_open = true }"><%= format_selected_date(@calendar.selected_day) %></button></h1>
+      <div class="calendar" x-show="calendar_open" @click.away="calendar_open = false">
         <button class="previous_month" phx-click="change_month" phx-value-month="<%= @calendar.previous_month %>" phx-target="<%= @myself %>"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7L1 4L4 1" stroke="#829AB1" stroke-width="1"/></svg></button>
         <h3 class="month"><%= @calendar.selected_month %></h3>
         <button class="next_month" phx-click="change_month" phx-value-month="<%= @calendar.next_month %>" phx-target="<%= @myself %>"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L4 4L1 7" stroke="#829AB1" stroke-width="1"/></svg></button>
@@ -32,7 +32,7 @@ defmodule LvexamplesWeb.Live.Components.Complex.DatePicker do
   end
 
   def update(assigns, socket) do
-    socket = assign(socket, :calendar, calendar_info(assigns.match_date, assigns.match_date))
+    socket = assign(socket, :calendar, calendar_info(assigns.selected_date, assigns.selected_date))
     {:ok, assign(socket, assigns)}
   end
 
@@ -44,7 +44,7 @@ defmodule LvexamplesWeb.Live.Components.Complex.DatePicker do
 
   def handle_event("change_selected_day", %{"date" => date}, socket) do
     socket = assign(socket, calendar: calendar_info(date, date), calendar_open: true)
-    send(self(), {:match_date, date})
+    send(self(), {:selected_date, date})
     {:noreply, socket}
   end
 
